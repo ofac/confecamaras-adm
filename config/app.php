@@ -10,9 +10,9 @@
     $js       = $public . '/js';
 
     // Config Data Base
-    $host    = '127.0.0.1';
+    $host    = 'containers-us-west-163.railway.app';
     $user    = 'root';
-    $passwd  = '';
-    $name_db = 'confecamaras';
+    $passwd  = 'IzdG88g4co0e240iyc26';
+    $name_db = 'railway';
 
 
