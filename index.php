@@ -303,7 +303,7 @@
                     <?php echo $sec['contentalt']; ?>
                     </p>
                     <div class="button mx-auto">
-                        <a href="<?php echo $sec['urlink']; ?>"  <?php echo $sec['optlink']; ?> class="btn btn-lg bg-confec my-2">
+                        <a href="<?php echo $sec['urllink']; ?>"  <?php echo $sec['optlink']; ?> class="btn btn-lg bg-confec my-2">
                             <?php echo $sec['textlink']; ?>
                         </a>
                     </div>
