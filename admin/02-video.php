@@ -43,7 +43,7 @@
         svg {
             width: 20px;
         }
-       
+        
         /* section.businessman */
         main .title-h3 {
             background-color: #ffb528;
@@ -111,7 +111,7 @@
     <main class="container-fluid">
         <!--  -->
         <section class="form row my-5">
-            <h2 class="title-form text-center p-2 my-5">01 - Menú: Superior</h2>
+            <h2 class="title-form text-center p-2 my-5">02 - Sección: Video</h2>
             <div class="col-md-8 offset-md-2">
                 <?php if (!isset($_SESSION['uid'])):?>
                 <?php 
@@ -129,46 +129,59 @@
                     </a>
                     <hr>
                     <form action="" method="POST">
-                        <?php $options = listMenu($conx); ?>
-                        <table class="w-100">
-                            <?php $cont = 1; ?>
-                            <?php foreach($options as $option): ?>
-                            <tr class="border-bottom">
-                                <td class="py-3">
-                                    <label class="form-label"><strong>Texto Enlace <?php echo $cont; ?>:</strong></label>
-                                    <input type="text" class="form-control" name="text[]"    value="<?php echo $option['text']; ?>" required>
-                                </td>
-                                <td class="py-3">
-                                    <label class="form-label"><strong>Dirección Enlace <?php echo $cont; ?>:</strong></label>
-                                    <input type="text" class="form-control" name="url[]"    value="<?php echo $option['url']; ?>" required>
-                                </td>
-                                <td class="py-3">
-                                    <label class="form-label"><strong>Opciones Enlace <?php echo $cont; ?>:</strong></label>
-                                    <input type="text" class="form-control" name="option[]"    value='<?php echo $option["options"]; ?>' placeholder="Opcional">
-                                </td>
-                            </tr>
-                            <input type="hidden" name="id[]" value="<?php echo $option["id"]; ?>">
-                            <?php $cont++ ?>
+                        <?php $options = showSection($conx, 1); ?>
+                        <?php foreach($options as $option): ?>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Título Principal:</strong></label>
+                                    <input type="text" class="form-control" name="title" value="<?php echo $option['title']; ?>" required>
+                            </div>
+                            <!-- <div class="pb-3">
+                                    <label class="form-label"><strong>Título Secundario:</strong></label>
+                                    <input type="text" class="form-control" name="subtitle" value="<?php echo $option['subtitle']; ?>" placeholder="Opcional">
+                            </div> -->
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Contenido:</strong></label>
+                                    <textarea type="text" rows="4" class="form-control" name="content" required><?php echo $option['content']; ?></textarea>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Contenido Alternativo:</strong></label>
+                                    <textarea type="text" rows="4" class="form-control" name="contentalt" placeholder="Opcional"><?php echo $option['contentalt']; ?></textarea>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Texto Enlace:</strong></label>
+                                    <input type="text" class="form-control" name="textlink" value="<?php echo $option['textlink']; ?>" required>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Dirección Enlace:</strong></label>
+                                    <input type="text" class="form-control" name="urllink" value="<?php echo $option['urllink']; ?>" required>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Opciones Enlace:</strong></label>
+                                    <input type="text" class="form-control" name="optlink" value='<?php echo $option['optlink']; ?>' placeholder="Opcional">
+                            </div>
                         <?php endforeach ?>
-                        </table>
                         <div class="my-4 button text-center">
                             <button class="btn btn-lg bg-confec rounded-5 px-5">GUARDAR</button>
                         </div>
                     </form>
                     <?php
                         if($_POST) {
-                            $data = $_POST;
+                            $title      = $_POST['title'];
+                            $content    = $_POST['content'];
+                            $contentalt = $_POST['contentalt'];
+                            $textlink   = $_POST['textlink'];
+                            $urllink    = $_POST['urllink'];
+                            $optlink    = $_POST['optlink'];
 
-                            //var_dump($data);
 
-                            if (updateMenu($conx, $data)) {
+
+                            if (updateVideo($conx, $title, $content, $contentalt, $textlink, $urllink, $optlink)) {
                                 echo "<script>
                                         window.location.replace('index.php')
                                       </script>";
                             } else {
-                                echo "<div class='alert alert-danger'>No se pudo modificar el Menú!</div>";
+                                echo "<div class='alert alert-danger'>No se pudo modificar la Sección Video!</div>";
                             }
-    
                         }
                     ?>
                 <?php endif ?>

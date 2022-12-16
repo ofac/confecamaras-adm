@@ -1,6 +1,6 @@
 <?php
     try {
-        $conx = new PDO("mysql:host=$host;port=5787;dbname=$name_db",$user,$passwd);
+        $conx = new PDO("mysql:host=$host;dbname=$name_db",$user,$passwd);
         $conx->exec("set names utf8");
         //echo "Connection Successfully!";
     }
@@ -93,6 +93,31 @@
                 return true;
             }
 
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+    // Update Video
+    function updateVideo($conx, $title, $content, $contentalt, $textlink, $urllink, $optlink) {
+        try {
+
+            $sql = "UPDATE sections SET title = :title, content = :content, 
+                           contentalt = :contentalt, textlink = :textlink, urllink = :urllink, 
+                           optlink = :optlink WHERE id = 1";
+            $stm = $conx->prepare($sql);
+            $stm->bindparam(":title", $title);
+            $stm->bindparam(":content", $content);
+            $stm->bindparam(":contentalt", $contentalt);
+            $stm->bindparam(":textlink", $textlink);
+            $stm->bindparam(":urllink", $urllink);
+            $stm->bindparam(":optlink", $optlink);
+            if($stm->execute()) {
+                $_SESSION['message'] = "Sección Video modificado con exito!";
+                return true;
+            } else {
+                return false;
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

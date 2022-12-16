@@ -36,6 +36,11 @@
             background-color: #134989;
         }
 
+        main .bg-yellow {
+            color: #134989;
+            background-color: #ffb528;
+        }
+
         svg {
             width: 20px;
         }
@@ -108,7 +113,7 @@
         <!--  -->
         <section class="form row my-5">
             <h2 class="title-form text-center p-2 my-5">Administración de Contenido</h2>
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-4 offset-md-4">
                 <?php if (!isset($_SESSION['uid'])):?>
                 <form class="row my-5" method="POST" action="">
                     <div class="col-md-8 offset-md-2">
@@ -148,22 +153,31 @@
                     </a>
                     <hr>
                     <div class="mb-2">
-                        <a href="01-menu.php" class="btn btn-lg bg-confec w-100"> 01 - Menú: Superior</a>
+                        <a href="https://confecamaras.up.railway.app" target="_blank" class="btn btn-lg bg-yellow w-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+
+                            Visitar Sitio
+                        </a>
                     </div>
                     <div class="mb-2">
-                        <a href="02-video.php" class="btn btn-lg bg-confec w-100"> 02 - Sección: Video</a>
+                        <a href="01-menu.php" class="btn btn-lg bg-confec w-100 text-start"> 01 - Menú: Superior</a>
                     </div>
                     <div class="mb-2">
-                        <a href="03-carousel.php" class="btn btn-lg bg-confec w-100"> 03 - Sección: Carousel</a>
+                        <a href="02-video.php" class="btn btn-lg bg-confec w-100 text-start"> 02 - Sección: Video</a>
                     </div>
                     <div class="mb-2">
-                        <a href="04-businessman.php" class="btn btn-lg bg-confec w-100"> 04 - Sección: Empresarios</a>
+                        <a href="03-carousel.php" class="btn btn-lg bg-confec w-100 text-start"> 03 - Sección: Carousel</a>
                     </div>
                     <div class="mb-2">
-                        <a href="05-institutions.php" class="btn btn-lg bg-confec w-100"> 05 - Sección: Instituciones</a>
+                        <a href="04-businessman.php" class="btn btn-lg bg-confec w-100 text-start"> 04 - Sección: Empresarios</a>
                     </div>
                     <div class="mb-2">
-                        <a href="06-students.php" class="btn btn-lg bg-confec w-100"> 06 - Sección: Estudiantes</a>
+                        <a href="05-institutions.php" class="btn btn-lg bg-confec w-100 text-start"> 05 - Sección: Instituciones</a>
+                    </div>
+                    <div class="mb-2">
+                        <a href="06-students.php" class="btn btn-lg bg-confec w-100 text-start"> 06 - Sección: Estudiantes</a>
                     </div>
 
                     <?php
