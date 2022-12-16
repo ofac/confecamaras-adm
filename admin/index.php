@@ -113,7 +113,7 @@
                 <form class="row my-5" method="POST" action="">
                     <div class="col-md-8 offset-md-2">
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" name="username" placeholder="Nombre de Usuario" value="melissa" required>
+                            <input type="text" class="form-control rounded-5" name="username" placeholder="Nombre de Usuario" required>
                         </div>
                         <div class="mb-4">
                             <input type="password" class="form-control rounded-5" name="password" placeholder="Contraseña" required>
