@@ -35,6 +35,10 @@
             color: #fff;
             background-color: #134989;
         }
+        main .bg-yellow {
+            color: #134989;
+            background-color: #ffb528;
+        }
 
         svg {
             width: 20px;
