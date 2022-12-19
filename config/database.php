@@ -1,6 +1,7 @@
 <?php
     try {
-        $conx = new PDO("mysql:host=$host;dbname=$name_db",$user,$passwd);
+        //$conx = new PDO("mysql:host=$host;dbname=$name_db",$user,$passwd);
+        $conx = new PDO("mysql:host=$host;port=5787;dbname=$name_db",$user,$passwd);
         $conx->exec("set names utf8");
         //echo "Connection Successfully!";
     }
