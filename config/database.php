@@ -97,7 +97,6 @@
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
     // Update Video
     function updateVideo($conx, $title, $content, $contentalt, $textlink, $urllink, $optlink) {
@@ -122,97 +121,11 @@
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Insert Pokemon
-    function addPokemon($conx, $name, $type, $strength, $stamina, $speed, $accuracy, $image, $trainer_id) {
+    // List Carousel
+    function listCarousel($conx) {
         try {
-            $sql = "INSERT INTO pokemons (name, type, strength, stamina, speed, accuracy,
-                    image, trainer_id) VALUES (:name, :type, :strength, :stamina, :speed, 
-                    :accuracy, :image, :trainer_id)";
-            $stm = $conx->prepare($sql);
-            $stm->bindparam(":name", $name);
-            $stm->bindparam(":type", $type);
-            $stm->bindparam(":strength", $strength);
-            $stm->bindparam(":stamina", $stamina);
-            $stm->bindparam(":speed", $speed);
-            $stm->bindparam(":accuracy", $accuracy);
-            $stm->bindparam(":image", $image);
-            $stm->bindparam(":trainer_id", $trainer_id);
-            if($stm->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-
-    }
-
-    // Update Pokemon
-    function updatePokemon($conx, $id, $name, $type, $strength, $stamina, $speed, $accuracy, $image, $trainer_id) {
-        try {
-            if($image != null) {
-                $sql = "UPDATE pokemons SET name = :name, type = :type, strength = :strength, 
-                        stamina = :stamina, speed = :speed, accuracy = :accuracy, image = :image, 
-                        trainer_id = :trainer_id WHERE id = :id ";
-            } else {
-                $sql = "UPDATE pokemons SET name = :name, type = :type, strength = :strength, 
-                        stamina = :stamina, speed = :speed, accuracy = :accuracy, 
-                        trainer_id = :trainer_id WHERE id = :id ";
-            }
-                
-            $stm = $conx->prepare($sql);
-            $stm->bindparam(":id", $id);
-            $stm->bindparam(":name", $name);
-            $stm->bindparam(":type", $type);
-            $stm->bindparam(":strength", $strength);
-            $stm->bindparam(":stamina", $stamina);
-            $stm->bindparam(":speed", $speed);
-            $stm->bindparam(":accuracy", $accuracy);
-            if($image != null) {
-                $stm->bindparam(":image", $image);
-            }
-            $stm->bindparam(":trainer_id", $trainer_id);
-            if($stm->execute()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-
-    }
-
-    // List All Pokemons
-    function listAllPokemons($conx) {
-        try {
-            $sql = "SELECT p.*, t.name AS nametrainer 
-                    FROM pokemons AS p, trainers AS t
-                    WHERE p.trainer_id = t.id
-                    ORDER BY p.id ASC";
+            $sql = "SELECT * FROM sliders";
             $stm = $conx->prepare($sql);
             $stm->execute();
             return $stm->fetchAll();
@@ -220,54 +133,79 @@
             echo $e->getMessage();
         }
     }
-
-    // List All My Pokemons
-    function listAllMyPokemons($conx, $id) {
+    // Update Sliders
+    function updateSliders($conx, $data) {
         try {
-            $sql = "SELECT p.*, t.name AS nametrainer 
-                    FROM pokemons AS p, trainers AS t
-                    WHERE p.trainer_id = t.id
-                    AND p.trainer_id = :id
-                    ORDER BY p.id ASC";
-            $stm = $conx->prepare($sql);
-            $stm->bindparam(":id", $id);
-            $stm->execute();
-            return $stm->fetchAll();
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
 
-    // Show Pokemon
-    function showPokemon($conx, $id) {
-        try {
-            $sql = "SELECT p.*, t.name AS nametrainer 
-                    FROM pokemons AS p, trainers AS t
-                    WHERE p.id = :id AND p.trainer_id = t.id";
-            $stm = $conx->prepare($sql);
-            $stm->bindparam(":id", $id);
-            $stm->execute();
-            return $stm->fetchAll();
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
-
-    // Delete Pokemon
-    function deletePokemon($conx, $id) {
-        try {
-            $sql = "DELETE FROM pokemons WHERE id = :id";
-            $stm = $conx->prepare($sql);
-            $stm->bindparam(":id", $id);
-            if($stm->execute()) {
+            for($i = 0; $i<=count($data); $i++) {
+                $sql = "UPDATE sliders SET title = :title, text = :text, textlink = :textlink,
+                               urllink = :urllink WHERE id = :id ";
+                $stm = $conx->prepare($sql);
+                $stm->bindparam(":id", $data['id'][$i]);
+                $stm->bindparam(":title", $data['title'][$i]);
+                $stm->bindparam(":text", $data['text'][$i]);
+                $stm->bindparam(":textlink", $data['textlink'][$i]);
+                $stm->bindparam(":urllink", $data['urllink'][$i]);
+                if($stm->execute()) {
+                    $qe = true;
+                } else {
+                    $qe = false;
+                }
+            }   
+            if($qe) {
+                $_SESSION['message'] = "Carousel modificado con exito!";
                 return true;
             } else {
-                return false;
+                return true;
             }
+
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
+        // Update Section
+        function updateSection($conx, $id, $title, $subtitle, $content, $contentalt, $textlink, $urllink, $optlink) {
+            try {
+    
+                $sql = "UPDATE sections SET title = :title, subtitle = :subtitle, content = :content, 
+                               contentalt = :contentalt, textlink = :textlink, urllink = :urllink, 
+                               optlink = :optlink WHERE id = :id";
+                $stm = $conx->prepare($sql);
+                $stm->bindparam(":id", $id);
+                $stm->bindparam(":title", $title);
+                $stm->bindparam(":subtitle", $subtitle);
+                $stm->bindparam(":content", $content);
+                $stm->bindparam(":contentalt", $contentalt);
+                $stm->bindparam(":textlink", $textlink);
+                $stm->bindparam(":urllink", $urllink);
+                $stm->bindparam(":optlink", $optlink);
+                if($stm->execute()) {
+                    $_SESSION['message'] = "Sección Video modificado con exito!";
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

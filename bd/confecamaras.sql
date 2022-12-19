@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-12-2022 a las 10:35:54
+-- Tiempo de generación: 19-12-2022 a las 15:53:43
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.21
 
@@ -39,10 +39,10 @@ CREATE TABLE `mainmenu` (
 --
 
 INSERT INTO `mainmenu` (`id`, `text`, `url`, `options`) VALUES
-(1, '¿Que és?', '#hero', NULL),
-(2, 'Empresarios', '#businessman', NULL),
-(3, 'Instituciones Educativas', '#institutions', NULL),
-(4, 'Estudiantes', '#students', NULL),
+(1, '¿Que és?', '#hero', ''),
+(2, 'Empresarios', '#businessman', ''),
+(3, 'Instituciones Educativas', '#institutions', ''),
+(4, 'Estudiantes', '#students', ''),
 (5, 'Documentos y Enlaces', 'javascript:;', 'data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\"');
 
 -- --------------------------------------------------------
@@ -68,10 +68,10 @@ CREATE TABLE `sections` (
 --
 
 INSERT INTO `sections` (`id`, `title`, `subtitle`, `image`, `content`, `contentalt`, `textlink`, `urllink`, `optlink`) VALUES
-(1, 'Educación y Formación Dual', NULL, '', 'La Educación y Formación Dual es una modalidad que combina el aprendizaje académico con la enseñanza práctica en las empresas.', 'Para más información consulta los enlaces y documentos que tenemos para tí.', 'Ver Documentos ', 'javascript:;', 'data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\"'),
-(2, 'Empresarios', 'Vinculate para:', 'images/businessman.png', '<li>Incidir en los programas de formación que se acoplen a las necesidades de su empresa.</li>\n                        <li>Promover la productividad y a innovación empresarial.</li>\n                        <li>Reducir la rotación de personal.</li>\n                        <li>Aportar a la formación de estudiantes y a la competitividad del sector.</li>', 'Consulta cómo vincular tu empresa', 'Ver más', 'pdf/guia-vinculacion-empresas.pdf', NULL),
-(3, 'Instituciones Educativas', NULL, 'images/did-you-know-01.png', '<li>La Educación y Formación Dual permite crear alianzas con el sector productivo.</li>\r\n                        <li>Genera el desarrollo de conocimiento e innovación de acuerdo con las necesidades y el talento humano requerido.</li>\r\n                        <li>Contribuye a la mejora continua de las organizaciones.</li>', 'Consulta cómo registrar tu Institución Educativa', 'Ver más', 'pdf/procedimiento-obtencion-registros.pdf', NULL),
-(4, 'Estudiantes', NULL, 'images/students.png', '<li>Adquiere experiencia mientras estudias.</li>\r\n                        <li>Incrementa la probabilidad de emplearte una vez termines tu proceso de formación.</li>\r\n                        <li>Ahorra tiempo valioso para tu vida profesional.</li>\r\n                        <li>Alterna tu aprendizaje conociendo las necesidades reales que afrontan las empresas.</li>\r\n                        <li>Altas posibilidades de continuar trabajando en la empresa al finalizar tu carrera.</li>', NULL, 'Conoce aquí las Instituciones Educativas y los programas que se están ofreciendo en la modalidad Dual', 'pdf/listado-modalidad-dual.pdf', NULL);
+(1, 'Educación y Formación Dual', '', '', 'La Educación y Formación Dual es una modalidad que combina el aprendizaje académico con la enseñanza práctica en las empresas.', 'Para más información consulta los enlaces y documentos que tenemos para tí.', 'Ver Documentos ', 'javascript:;', 'data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\"'),
+(2, 'Empresarios', 'Vinculate para:', 'images/businessman.png', '<li>Incidir en los programas de formación que se acoplen a las necesidades de su empresa.</li>\r\n<li>Promover la productividad y a innovación empresarial.</li>\r\n<li>Reducir la rotación de personal.</li>\r\n<li>Aportar a la formación de estudiantes y a la competitividad del sector.</li>', 'Consulta cómo vincular tu empresa', 'Ver más', 'pdf/guia-vinculacion-empresas.pdf', ''),
+(3, 'Instituciones Educativas', '', 'images/did-you-know-01.png', '<li>La Educación y Formación Dual permite crear alianzas con el sector productivo.</li>\r\n<li>Genera el desarrollo de conocimiento e innovación de acuerdo con las necesidades y el talento humano requerido.</li>\r\n<li>Contribuye a la mejora continua de las organizaciones.</li>', 'Consulta cómo registrar tu Institución Educativa', 'Ver más', 'pdf/procedimiento-obtencion-registros.pdf', ''),
+(4, 'Estudiantes', '', 'images/students.png', '<li>Adquiere experiencia mientras estudias.</li>\r\n<li>Incrementa la probabilidad de emplearte una vez termines tu proceso de formación.</li>\r\n<li>Ahorra tiempo valioso para tu vida profesional.</li>\r\n <li>Alterna tu aprendizaje conociendo las necesidades reales que afrontan las empresas.</li>\r\n                        <li>Altas posibilidades de continuar trabajando en la empresa al finalizar tu carrera.</li>', '', 'Conoce aquí las Instituciones Educativas y los programas que se están ofreciendo en la modalidad Dual', 'pdf/listado-modalidad-dual.pdf', '');
 
 -- --------------------------------------------------------
 

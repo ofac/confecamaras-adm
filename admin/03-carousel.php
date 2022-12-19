@@ -128,23 +128,55 @@
                         Regresar Menú Admin
                     </a>
                     <hr>
-                    <form action="" method="POST">
-                        
-                        
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <?php $options = listCarousel($conx); ?>
+                        <?php $cont = 1; ?>
+                        <?php foreach($options as $option): ?>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Título Principal <?php echo $cont; ?>:</strong></label>
+                                    <input type="text" class="form-control" name="title[]" value="<?php echo $option['title']; ?>" required>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Texto <?php echo $cont; ?>:</strong></label>
+                                    <textarea type="text" rows="4" class="form-control" name="text[]" required><?php echo $option['text']; ?></textarea>
+                            </div>
+        
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Texto Enlace <?php echo $cont; ?>:</strong></label>
+                                    <input type="text" class="form-control" name="textlink[]" value="<?php echo $option['textlink']; ?>" required>
+                            </div>
+                            <div class="pb-3">
+                                    <label class="form-label"><strong>Dirección Enlace <?php echo $cont; ?>:</strong></label>
+                                    <input type="text" class="form-control" name="urllink[]" value="<?php echo $option['urllink']; ?>" required>
+                            </div>
+                            <hr>
+                            <input type="hidden" name="id[]" value="<?php echo $option["id"]; ?>">
+                            <?php $cont++; ?>
+                        <?php endforeach ?>
                         <div class="my-4 button text-center">
                             <button class="btn btn-lg bg-confec rounded-5 px-5">GUARDAR</button>
                         </div>
                     </form>
                     <?php
                         if($_POST) {
-    
+                            $data = $_POST;
+
+                            var_dump($data);
+
+                            if (updateSliders($conx, $data)) {
+                                echo "<script>
+                                        window.location.replace('index.php')
+                                      </script>";
+                            } else {
+                                echo "<div class='alert alert-danger'>No se pudo modificar el Corousel!</div>";
+                            }
                         }
                     ?>
                 <?php endif ?>
             </div>
         </section>
         <!--  -->
-        <footer class="footer row mt-5 position-absolute bottom-0 w-100">
+        <footer class="footer row mt-5 w-100">
             <h3 class="title-social text-center p-2 mt-5">
                 &copy; Todos los derechos reservados
             </h3>

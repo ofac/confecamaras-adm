@@ -173,8 +173,6 @@
                             $urllink    = $_POST['urllink'];
                             $optlink    = $_POST['optlink'];
 
-
-
                             if (updateVideo($conx, $title, $content, $contentalt, $textlink, $urllink, $optlink)) {
                                 echo "<script>
                                         window.location.replace('index.php')
