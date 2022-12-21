@@ -8,263 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confecámaras - [Educación y Formación Dual]</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <style>
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        @font-face {
-            font-family: SourceSans;
-            src: url("fonts/SourceSans-Roman.otf") format("opentype");
-        }
-        @font-face {
-            font-family: 'Montserrat-Light';
-            src: url("fonts/Montserrat-Light.ttf") format("opentype");
-        }
-        @font-face {
-            font-family: 'Montserrat-Medium';
-            src: url("fonts/Montserrat-Medium.ttf") format("opentype");
-        }
-        body {
-            font-family: 'Montserrat-Light';
-        }
-        h1, h2, h3 {
-            font-family: SourceSans;
-        } 
-        main .bg-confec {
-            color: #fff;
-            background-color: #134989;
-        }
-        main header div.logos {
-            height: 114px;
-        }
-        main header img.logo-min {
-            margin-left: -12px;
-        }
-        main header nav.menu {
-            background-color: #ffb528;
-            font-size: 1rem;
-            min-height: 60px;
-        }
-        main header nav ul li {
-            border-left: 2px solid #134989;
-            padding-left: 2rem;
-        }
-        main header nav ul li:nth-of-type(5) {
-            border-right: 2px solid #134989;
-            padding-right: 2rem;
-        }
-        main header nav a:is(:link, :focus, :visited) {
-            color: #134989;
-            text-decoration: none;
-        }
-        main section.hero p {
-            font-family: 'Montserrat-Light';
-            color: #131313;
-        }
-        main section.hero .button {
-            color: #134989;
-        }
-        main section.hero h2 {
-            background: url(images/corner-left-red.svg) no-repeat top left, url(images/corner-right-red.svg) no-repeat bottom right;
-            color: #134989;
-            font-size: 3.2rem;
-            font-weight: bold;
-            padding: 0.2rem 0 0.4rem 0.6rem;
-            width: 24.2rem;
-        }
-        main section.hero p.description {
-            background: url(images/corner-left-yellow.svg) no-repeat top left, url(images/corner-right-yellow.svg) no-repeat bottom right;
-            font-size: 1.2rem;
-            padding: 0.2rem 0 0.4rem 0.6rem;
-            width: 24.2rem;
-        }
-        main section.hero p.info {
-            font-weight: bold;
-            font-size: 1.2rem;
-            padding: 0.4rem 0 0.4rem 0.8rem;
-            width: 24.2rem;
-        }
-        main section.hero div.button {
-            padding: 0.4rem 0 0.4rem 0.8rem;
-            width: 23.2rem;
-        }
+    <link rel="stylesheet" href="css/landing.css">
 
-        .navbar-toggler-icon {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb%2819, 73, 137' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        @media (max-width: 990px) {
-            main header nav ul.gap-5 {
-                gap: 0 !important;
-            }
-            main header nav ul li {
-                border-left: none;
-                padding-left: 0;
-                border-top: 1px solid #134989;
-                width: 100%;
-            }
-            main header nav ul li:nth-of-type(1) {
-                margin-top: 4rem;
-            }
-            main header nav ul li:nth-of-type(5) {
-                border-right: none;
-                padding-right: 0;
-                border-bottom: 1px solid #134989;
-                margin-bottom: 1rem;
-            }
-            main header nav ul li a:is(:link, :focus, :visited) {
-                display: block;
-                padding: 1rem;
-            }
-        }
-        /* section.carousel */
-        main section.carousel {
-            color: #134989;
-        }
-        main section.carousel h2 {
-            background: url(images/questions.png) no-repeat center bottom;
-            display: flex;
-            flex-direction: column;
-            font-size: 3.8rem;   
-            font-weight: bold;
-            padding-bottom: 1rem;
-            width: 440px;
-        }
-        main section.carousel h2 strong {
-            font-weight: bold;
-            font-size: 3.8rem;
-        }
-        main section.carousel p {
-            font-size: 1.2rem;
-            color: #131313;
-            width: 410px;
-        
-        }
-        button.carousel-control-prev:hover img,
-        button.carousel-control-next:hover img {
-            transition: transform 0.2s ease-in;
-            transform: scale(1.1);
-        }
-        button.carousel-control-prev,
-        button.carousel-control-prev:hover {
-            background-color: transparent;
-            opacity: 1;
-        }
-        button.carousel-control-next,
-        button.carousel-control-next:hover {
-            background-color: transparent;
-            opacity: 1;
-        }
-        main section.carousel h2.title-carousel2 {
-            font-size: 2.2rem; 
-        }
-        /* section.businessman */
-        main .title-h3 {
-            background-color: #ffb528;
-            font-size: 1.6rem;
-            color: #fff;
-        }
-        main .title-h3 strong {
-            background: url(images/corner-left-blue.svg) no-repeat top left, url(images/corner-right-blue.svg) no-repeat bottom right;
-            padding: 0 0.6rem 0 0.6rem;
-        }
-
-        main .cont-left {
-            width: 440px;
-        }
-        main .cont-right {
-            width: 480px;
-        }
-
-        main h5,
-        main h5 a:is(:link, :visited, :focus) {
-            color: #134989;
-            font-weight: bold;
-        }
-
-        main section.businessman .button,
-        main section.institutions .button,
-        main section.students .button {
-            color: #134989;
-        }
-
-        main section.businessman ul li,
-        main section.institutions ul li,
-        main section.students ul li {
-            background: url(images/bullet-red.svg) no-repeat 0 10px;
-            font-size: 1.1rem;
-            color: #373737;
-            margin-bottom: 1rem;
-            padding-left: 1.4rem;
-        }
-        /* section.form */
-        main section.form h2 {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #134989;
-        }
-        main section.form .button {
-            color: #134989;
-        }
-        main section.form .form-control {
-            background-color: #e8e8e8;
-            color: #134989;
-            padding: 0.6rem;
-            font-size: 1.2rem;
-            text-indent: 1rem;
-            border: none;
-        } 
-        main section.form .form-control::placeholder {
-            color: #aeaeae;
-        }
-        main section.form button {
-            font-weight: bold;
-        }
-        /* footer.footer */
-        main footer h3.title-social {
-            background-color: #134989;
-            font-weight: normal;
-            font-size: 0.8rem;
-            line-height: 2rem;
-            color: #fff;
-        }
-        main footer nav ul li {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        main footer nav ul li:nth-of-type(2) {
-            border-left: 1px solid #134989;
-            border-right: 1px solid #134989;
-        }
-        main footer nav a:is(:link, :focus, :visited) {
-            color: #134989;
-            font-size: 0.8rem;
-            text-decoration: none;
-        }
-        main footer .confecamaras {
-            background-color: #f8f7ff;
-        }
-        main footer .colors {
-            background: linear-gradient(to right, #ffb528 40%, #134989 40% 70%, #e01313 70%);
-            height: 10px;
-        }
-        main .modal ul li {
-            margin-bottom: 0.6rem;
-            /* border-bottom: 1px solid #134989; */
-            padding: 0.2rem;
-        }
-        main .modal ul li a:is(:link, a:visited, a:focus) {
-            color: #134989;
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
-    <main class="container-fluid">
+    <main class="container-fluid" id="top">
         <!-- Header -->
         <header class="row bg-white">
             <div class="logos col-md-12 d-flex justify-content-between align-items-center">
@@ -315,7 +63,18 @@
         </section>
         <!--  -->
         <section id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        <div class="btn-animation">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Pausar Animación
+        </div>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>   
+        <div class="carousel-inner">
                 <?php 
                     $sliders = showSliders($conx);
                 ?>
@@ -433,7 +192,7 @@
         <section class="form row">
             <h2 class="title-form text-center p-2 mt-5 mb-5">Formulario de Contacto</h2>
             <div class="col-md-6 offset-md-3">
-                <!-- <form class="row mb-5" method="POST" action="">
+                <form class="row mb-5" method="POST" action="">
                     <div class="col-md-6">
                         <div class="mb-4">
                             <input type="text" class="form-control rounded-5" placeholder="Nombre">
@@ -457,11 +216,11 @@
                         <div class="mb-4">
                             <input type="text" class="form-control rounded-5" placeholder="Celular">
                         </div>
-                        <div class="mb-4 button text-center">
+                        <!-- <div class="mb-4 button text-center">
                             <button class="btn btn-lg bg-confec rounded-5 px-5">¡CONTACTANOS!</button>
-                        </div>
+                        </div> -->
                     </div>
-                </form> -->
+                </form>
                 <div class="text-center mb-5">
                     <a href="https://forms.office.com/r/Z7pDLTbJDM" target="_blank" class="btn btn-lg bg-confec rounded-5 px-5">¡CONTACTANOS!</a>
                 </div>
@@ -543,9 +302,35 @@
         </div>
     </div>
         <!--  -->
+        <aside class="navbar-accessibility">
+            <div class="options">
+                <a href="javascript:;" class="btn-contrast">
+                    <img src="images/ico-contrast.svg" alt="">
+                    Contraste
+                </a>
+                <a href="javascript:;" class="btn-text-decrease">
+                    <img src="images/ico-text-decrease.svg" alt="">
+                    Reducir letra
+                </a>
+                <a href="javascript:;" class="btn-text-increase">
+                    <img src="images/ico-text-increase.svg" alt="">
+                    Aumentar letra
+                </a>
+            </div>
+        </aside>
+        <aside class="goto-top">
+            <div class="options">
+                <a href="#top" class="btn-gototop">
+                    <img src="images/ico-gototop.svg" alt="">
+                    Volver Arriba
+                </a>
+            </div>
+        </aside>
+        <!--  -->
     </main>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/landing.js"></script>
 </body>
 </html>

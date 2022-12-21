@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-12-2022 a las 15:53:43
+-- Tiempo de generación: 21-12-2022 a las 17:06:11
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.21
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `confecamaras`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `institution` varchar(64) NOT NULL,
+  `firstname` varchar(32) NOT NULL,
+  `lastname` varchar(32) NOT NULL,
+  `department` varchar(32) NOT NULL,
+  `city` varchar(32) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `phone` varchar(32) NOT NULL,
+  `status` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `institution`, `firstname`, `lastname`, `department`, `city`, `email`, `phone`, `status`) VALUES
+(1, 'Prueba Educamos', 'Usuario', 'Prueba', 'Cundinamarca', 'Bogotá', 'pueba@gmail.com', '6543221', '0');
 
 -- --------------------------------------------------------
 
@@ -122,6 +147,12 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `password`) VALUES
 --
 
 --
+-- Indices de la tabla `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `mainmenu`
 --
 ALTER TABLE `mainmenu`
@@ -148,6 +179,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `mainmenu`

@@ -8,104 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confecámaras - [Educación y Formación Dual]</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <style>
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        @font-face {
-            font-family: SourceSans;
-            src: url("../fonts/SourceSans-Roman.otf") format("opentype");
-        }
-        @font-face {
-            font-family: 'Montserrat-Light';
-            src: url("../fonts/Montserrat-Light.ttf") format("opentype");
-        }
-        @font-face {
-            font-family: 'Montserrat-Medium';
-            src: url("../fonts/Montserrat-Medium.ttf") format("opentype");
-        }
-        body {
-            font-family: 'Montserrat-Light';
-        }
-        h1, h2, h3 {
-            font-family: SourceSans;
-        } 
-        main .bg-confec {
-            color: #fff;
-            background-color: #134989;
-        }
-        main .bg-yellow {
-            color: #134989;
-            background-color: #ffb528;
-        }
-
-        svg {
-            width: 20px;
-        }
-       
-        /* section.businessman */
-        main .title-h3 {
-            background-color: #ffb528;
-            font-size: 1.6rem;
-            color: #fff;
-        }
-        main .title-h3 strong {
-            background: url(images/corner-left-blue.svg) no-repeat top left, url(images/corner-right-blue.svg) no-repeat bottom right;
-            padding: 0 0.6rem 0 0.6rem;
-        }
-
-        main .cont-left {
-            width: 440px;
-        }
-        main .cont-right {
-            width: 480px;
-        }
-
-        main h5,
-        main h5 a:is(:link, :visited, :focus) {
-            color: #134989;
-            font-weight: bold;
-        }
-        /* section.form */
-        main section.form h2 {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #134989;
-        }
-        main section.form .button {
-            color: #134989;
-        }
-        main section.form .form-control {
-            background-color: #e8e8e8;
-            color: #134989;
-            padding: 0.2rem;
-            font-size: 1rem;
-            text-indent: 0.4rem;
-            border: none;
-        } 
-        main section.form .form-control::placeholder {
-            color: #aeaeae;
-        }
-        main section.form button {
-            font-weight: bold;
-        }
-        /* footer.footer */
-        main footer h3.title-social {
-            background-color: #134989;
-            font-weight: normal;
-            font-size: 0.8rem;
-            line-height: 2rem;
-            color: #fff;
-        }
-        main footer .confecamaras {
-            background-color: #f8f7ff;
-        }
-        main footer .colors {
-            background: linear-gradient(to right, #ffb528 40%, #134989 40% 70%, #e01313 70%);
-            height: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
     <main class="container-fluid">
@@ -189,16 +92,6 @@
                 <?php endif ?>
             </div>
         </section>
-        <!--  -->
-        <footer class="footer row mt-5 position-absolute bottom-0 w-100">
-            <h3 class="title-social text-center p-2 mt-5">
-                &copy; Todos los derechos reservados
-            </h3>
-            <div class="confecamaras py-2">
-                <img class="float-end" src="../images/logo-confecamaras.png" alt="Confecámaras" width="360px">
-            </div>
-            <div class="colors"></div>
-        </footer>
         <!--  -->
     </main>
 

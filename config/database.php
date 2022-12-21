@@ -189,6 +189,17 @@
                 echo $e->getMessage();
             }
         }
+        // List Contacts
+    function listContacts($conx) {
+        try {
+            $sql = "SELECT * FROM contacts";
+            $stm = $conx->prepare($sql);
+            $stm->execute();
+            return $stm->fetchAll();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
 
 
