@@ -15,7 +15,7 @@
                 <img src="images/logo.png" title="Ir al inicio del portal" height="50px">
             </a>
             <a href="https://www.mincit.gov.co" target="_blank">
-            <img src="images/logomincit2022.png" title="Logo del Mininterio de Comercio, lleva a la página web" height="50px">
+            <img src="images/logo-mincit.png" title="Logo del Mininterio de Comercio, lleva a la página web" height="50px">
             </a>
             
         </div>
