@@ -203,8 +203,8 @@
     // Insert Contact
     function addContact($conx, $institution, $firstname, $lastname, $department, $city, $email, $phone, $status) {
         try {
-            $sql = "INSERT INTO contacts (institution, firstname, lastname, department, city, email, phone, status) 
-                    VALUES (:institution, :firstname, :lastname, :department, :city, :email, :phone, :status)";
+            $sql = "INSERT INTO contacts (id, institution, firstname, lastname, department, city, email, phone, status) 
+                    VALUES (DEFAULT, :institution, :firstname, :lastname, :department, :city, :email, :phone, :status)";
             $stm = $conx->prepare($sql);
             $stm->bindparam(":institution", $institution);
             $stm->bindparam(":firstname", $firstname);
