@@ -189,16 +189,51 @@
                 echo $e->getMessage();
             }
         }
-        // List Contacts
+    // List Contacts
     function listContacts($conx) {
         try {
-            $sql = "SELECT * FROM contacts";
+            $sql = "SELECT * FROM contacts ORDER BY id DESC";
             $stm = $conx->prepare($sql);
             $stm->execute();
             return $stm->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+    }
+    // Insert Contact
+    function addContact($conx, $institution, $firstname, $lastname, $department, $city, $email, $phone, $status) {
+        try {
+            $sql = "INSERT INTO contacts (institution, firstname, lastname, department, city, email, phone, status) 
+                    VALUES (:institution, :firstname, :lastname, :department, :city, :email, :phone, :status)";
+            $stm = $conx->prepare($sql);
+            $stm->bindparam(":institution", $institution);
+            $stm->bindparam(":firstname", $firstname);
+            $stm->bindparam(":lastname", $lastname);
+            $stm->bindparam(":department", $department);
+            $stm->bindparam(":city", $city);
+            $stm->bindparam(":email", $email);
+            $stm->bindparam(":phone", $phone);
+            $stm->bindparam(":status", $status);
+
+            if($stm->execute()) {
+                $to = 'ofaczero@gmail.com';
+                $subject  = 'Formulario de Contacto: Educación y Formación Dual';
+                $message  = "<p><b>Institución:</b> $institution </p>";
+                $message .= "<p><b>Nombre Completo:</b> $firstname $lastname </p>";
+                $message .= "<p><b>Departamento:</b> $department </p>";
+                $message .= "<p><b>Ciudad:</b> $city </p>";
+                $message .= "<p><b>Correo Electrónico:</b> $email </p>";
+                $message .= "<p><b>Teléfono:</b> $phone </p>";
+
+                mail($to, $subject, $message);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
     }
 
 

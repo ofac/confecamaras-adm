@@ -8,16 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confecámaras - [Educación y Formación Dual]</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/govco.css">
     <link rel="stylesheet" href="css/landing.css">
 
 </head>
 <body>
+    <!--  -->
+    <?php include_once 'header-govco.inc'; ?>
+    <!--  -->
     <main class="container-fluid" id="top">
         <!-- Header -->
         <header class="row bg-white">
-            <div class="logos col-md-12 d-flex justify-content-between align-items-center">
+            <!-- <div class="logos col-md-12 d-flex justify-content-between align-items-center">
                 <img class="logo-min" src="images/logo-min-comercio.png" width="320px">
-            </div>
+            </div> -->
             <nav class="navbar navbar-expand-lg bg-confec m-0 p-0 menu">
                     <div class="container-fluid">
                         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -193,37 +197,57 @@
             <h2 class="title-form text-center p-2 mt-5 mb-5">Formulario de Contacto</h2>
             <div class="col-md-6 offset-md-3">
                 <form class="row mb-5" method="POST" action="">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Nombre">
-                        </div>
-                        <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Departamento">
+                            <input type="text" name="institution" class="form-control rounded-5" placeholder="Institución" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Apellido">
+                            <input type="text" name="firstname" class="form-control rounded-5" placeholder="Nombre" required>
                         </div>
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Ciudad">
+                            <input type="text" name="department" class="form-control rounded-5" placeholder="Departamento" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <input type="text" name="lastname" class="form-control rounded-5" placeholder="Apellido" required>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" name="city" class="form-control rounded-5" placeholder="Ciudad" required>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Correo Electrónico">
+                            <input type="email" name="email" class="form-control rounded-5" placeholder="Correo Electrónico" required>
                         </div>
                         <div class="mb-4">
-                            <input type="text" class="form-control rounded-5" placeholder="Celular">
+                            <input type="text" name="phone" class="form-control rounded-5" placeholder="Celular" required>
                         </div>
-                        <!-- <div class="mb-4 button text-center">
+                        <div class="mb-4 button text-center">
                             <button class="btn btn-lg bg-confec rounded-5 px-5">¡CONTACTANOS!</button>
-                        </div> -->
+                        </div>
                     </div>
                 </form>
-                <div class="text-center mb-5">
-                    <a href="https://forms.office.com/r/Z7pDLTbJDM" target="_blank" class="btn btn-lg bg-confec rounded-5 px-5">¡CONTACTANOS!</a>
-                </div>
+                <?php
+                    if($_POST) {
+                        $institution = $_POST['institution'];
+                        $firstname   = $_POST['firstname'];
+                        $lastname    = $_POST['lastname'];
+                        $department  = $_POST['department'];
+                        $city        = $_POST['city'];
+                        $email       = $_POST['email'];
+                        $phone       = $_POST['phone'];
+                        $status      = 0;
+
+                        if (addContact($conx, $institution, $firstname, $lastname, $department, $city, $email, $phone, $status)) {
+                            echo "<div class='mb-5 alert alert-success'>Datos de formulario enviados con exito.";
+                        } else {
+                            echo "<div class='mb-5 alert alert-danger'>No se pudo enviar los datos de formulario de contacto!";
+                        }
+                    }
+                ?>
             </div>
         </section>
         <!--  -->

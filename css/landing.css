@@ -20,11 +20,13 @@
         src: url("../fonts/Montserrat-Medium.ttf") format("opentype");
     }
     body {
+        background-color: #fff;
         font-family: 'Montserrat-Light';
     }
     h1, h2, h3 {
         font-family: SourceSans;
     } 
+    /* - - - */
     main .bg-confec {
         color: #fff;
         background-color: #134989;
