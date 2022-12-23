@@ -242,7 +242,7 @@
             if($qe) {
                 return true;
             } else {
-                return true;
+                return false;
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
