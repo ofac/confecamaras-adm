@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/govco.css">
     <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -193,6 +194,13 @@
             <?php endforeach ?>
         </section>
         <!--  -->
+        <?php
+            $min  = 1;
+            $max  = 50;
+            $num1 = rand( $min, $max );
+            $num2 = rand( $min, $max );
+            $sum  = $num1 + $num2;
+        ?>
         <section class="form row">
             <h2 class="title-form text-center p-2 mt-5 mb-5">Formulario de Contacto</h2>
             <div class="col-md-6 offset-md-3">
@@ -225,8 +233,18 @@
                         <div class="mb-4">
                             <input type="text" name="phone" class="form-control rounded-5" placeholder="Celular" required>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-4 col-md-6">
+                            <input type="text" name="sum" class="form-control rounded-5" value="<?php echo $num1 . ' + ' . $num2; ?> =" disabled>
+                        </div>
+                        <div class="mb-4 col-md-6">
+                            <input type="number" name="quiz" class="form-control quiz rounded-5" placeholder="Respuesta Suma" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <div class="mb-4 button text-center">
-                            <button class="btn btn-lg bg-confec rounded-5 px-5">¡CONTACTANOS!</button>
+                            <button class="btn btn-contact btn-lg bg-confec rounded-5 px-5" data-res="<?php echo $sum; ?>" disabled>¡CONTACTANOS!</button>
                         </div>
                     </div>
                 </form>
@@ -242,9 +260,9 @@
                         $status      = 0;
 
                         if (addContact($conx, $institution, $firstname, $lastname, $department, $city, $email, $phone, $status)) {
-                            echo "<div class='mb-5 alert alert-success'>Datos de formulario enviados con exito.";
+                            echo "<div class='mb-5 alert alert-success'>Datos de formulario enviados con exito.</div>";
                         } else {
-                            echo "<div class='mb-5 alert alert-danger'>No se pudo enviar los datos de formulario de contacto!";
+                            echo "<div class='mb-5 alert alert-danger'>No se pudo enviar los datos de formulario de contacto!</div>";
                         }
                     }
                 ?>
@@ -269,13 +287,13 @@
                 </span>
                 &copy; Todos los derechos reservados
             </h3>
-            <nav>
+            <!-- <nav>
                 <ul class="list-unstyled p-0 mt-3 mb-5 mx-auto d-flex justify-content-center align-items-center">
                     <li><a href="#" target="_blank">Aviso de Privacidad</a></li>
                     <li><a href="https://www.mincit.gov.co/servicio-ciudadano/politicas-de-tratamiento-de-datos-personales" target="_blank">Politica de Tratamiento de Datos Personales</a></li>
                     <li><a href="#" target="_blank">Términos y Condiciones</a></li>
                 </ul>
-            </nav>
+            </nav> -->
             <div class="confecamaras py-2">
                 <img class="float-end" src="images/logo-confecamaras.png" alt="Confecámaras" width="360px">
             </div>
@@ -325,6 +343,24 @@
             </div>
         </div>
     </div>
+    
+
+        <div id="myModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Formulario de Contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class='mb-5 alert alert-success'>Datos de formulario enviados con exito.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <!--  -->
         <aside class="navbar-accessibility">
             <div class="options">
@@ -352,9 +388,20 @@
         </aside>
         <!--  -->
     </main>
+    <!--  -->
+    <?php include_once 'footer-govco.inc'; ?>
+    <!--  -->
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/landing.js"></script>
+    <script>
+        $(document).ready(function() {
+            <?php if (isset($_SESSION['message'])):  ?>
+                $("#myModal").modal('show');
+            <?php unset($_SESSION['message']) ?>
+            <?php endif ?>
+        })
+    </script>
 </body>
 </html>

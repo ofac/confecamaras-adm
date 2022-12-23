@@ -21,3 +21,24 @@
         </div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row bg-search">
+        <div class="col-md-10">
+
+        </div>
+        <div class="col-md-2">
+            <form action="https://competitivas.gov.co/resultados" method="GET" target="_blank" class="form-search">
+                <input type="hidden" name="indexCatalogue" value="sitio-web">
+                <div class="input-group rounded">
+                <input type="search" name="searchQuery" class="form-control rounded form-search" placeholder="Buscar..." aria-label="Search" aria-describedby="search-addon" />
+                <button class="input-group-text border-0" id="search-addon">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

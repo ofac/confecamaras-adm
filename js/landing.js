@@ -1,4 +1,14 @@
+const submitButton = document.querySelector('.btn-contact');
+const quizInput    = document.querySelector(".quiz");
 
+quizInput.addEventListener("input", function(e) {
+	const res = submitButton.getAttribute("data-res");
+	if ( this.value == res ) {
+		submitButton.removeAttribute("disabled");
+	} else {
+		submitButton.setAttribute("disabled", "");
+	}
+})
 $(function() {
     // - - -
     $('.slide').hover(function() {

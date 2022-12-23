@@ -4,3 +4,134 @@
     padding: 0.58rem;
     flex-flow: column;
 }
+
+.bg-search {
+    background-color: #f6f8f9;
+    padding: 0.4rem;
+}
+
+form.form-search input {
+    border: 1px solid #999999;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right: none !important;
+
+}
+
+form.form-search input:focus {
+    border: 1px solid #999999;
+    outline: none !important;
+    box-shadow: none;
+}
+form.form-search #search-addon {
+    border: 1px solid #999999 !important;
+    border-left: none !important;
+    background-color: #fff !important;
+    position: relative;
+    color: #fff;
+}
+
+form.form-search span {
+    background-color: #36c !important;
+    border-radius: 100%;
+    padding: 0.2rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 6px;
+    align-items: center;
+    height: 28px;
+    width: 28px;
+    z-index: 99;
+
+}
+
+form.form-search svg {
+    width: 1rem;
+}
+
+.he_footer {
+    background: #36c 0% 0% no-repeat padding-box;
+    padding: 35px;
+    font: Regular 12px/14px "Work Sans", sans-serif;
+    letter-spacing: 0;
+    color: #fff;
+    opacity: 1;
+    font-size: 12px;
+}
+.he_footer a:is(:link, :focus, :visited) {
+    color: #fff;
+}
+footer .logo img {
+    height: 30px !important;
+    max-width: none !important;
+}
+
+.he_footer .logo_co img {
+    height: 70px;
+}
+
+.he_footer .fa-circulo {
+    border-radius: 50%;
+    background: #fff;
+    color: #36c;
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 2px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .5);
+}
+.he_footer .logos {
+    text-align: center;
+}
+.he_footer .logo {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.he_footer .split, .he_footer .no-split {
+    padding: 15px 25px;
+}
+.he_footer .logos {
+    text-align: center;
+}
+.he_footer .split {
+    border-right: 1px solid #fff;
+}
+
+.he_footer h2 {
+    font-size: 1.3rem !important;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.he_footer_redes {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    margin-top: 35px;
+}
+.he_footer ul.he_footer_redes li {
+    float: left;
+    margin: 0 0 0 11px;
+    height: 50px;
+    overflow: hidden;
+    list-style: none;
+}
+.he_footer ul.he_footer_redes li .fa_text {
+    display: inline-block;
+    padding-top: 7px;
+    color: #fff;
+    font-weight: normal;
+    font-size: .7rem;
+}
+footer .fa.fa-phone {
+    color: #fff !important;
+    font-size: 1rem !important;
+    padding-right: 10px;
+}
+.he_footer .text-3 {
+    font-size: 1rem !important;
+}

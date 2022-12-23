@@ -7,6 +7,10 @@
     html.contrast {
         filter: invert(1);
     }
+    main input[disabled] {
+        color: #134989 !important;
+
+    }
     @font-face {
         font-family: SourceSans;
         src: url("../fonts/SourceSans-Roman.otf") format("opentype");

@@ -216,19 +216,33 @@
             $stm->bindparam(":status", $status);
 
             if($stm->execute()) {
-                $to = 'ofaczero@gmail.com';
-                $subject  = 'Formulario de Contacto: Educación y Formación Dual';
+                $to       = "ofaczero@gmail.com";
+                $subject  = "Formulario de Contacto: Educación y Formación Dual";
                 $message  = "<p><b>Institución:</b> $institution </p>";
                 $message .= "<p><b>Nombre Completo:</b> $firstname $lastname </p>";
                 $message .= "<p><b>Departamento:</b> $department </p>";
                 $message .= "<p><b>Ciudad:</b> $city </p>";
                 $message .= "<p><b>Correo Electrónico:</b> $email </p>";
                 $message .= "<p><b>Teléfono:</b> $phone </p>";
-
-                mail($to, $subject, $message);
+                
+                $header = "From:ofaczero@gmail.com \r\n";
+                $header .= "Cc:ofaczero@gmail.com \r\n";
+                $header .= "MIME-Version: 1.0\r\n";
+                $header .= "Content-type: text/html\r\n";
+                
+                $retval = mail ($to,$subject,$message,$header);
+                
+                if( $retval == true ) {
+                    $_SESSION['message'] = "send";
+                    $qe = true;
+                }else {
+                    $qe = false;
+                }
+            } 
+            if($qe) {
                 return true;
             } else {
-                return false;
+                return true;
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
