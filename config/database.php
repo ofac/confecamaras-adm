@@ -225,25 +225,31 @@
                 $message .= "<p><b>Correo Electrónico:</b> $email </p>";
                 $message .= "<p><b>Teléfono:</b> $phone </p>";
                 
-                $header = "From:ofaczero@gmail.com \r\n";
-                $header .= "Cc:ofaczero@gmail.com \r\n";
-                $header .= "MIME-Version: 1.0\r\n";
+                $header  = "MIME-Version: 1.0\r\n";
+                $header .= "From: ofaczero@gmail.com \r\n";
+                $header .= "Cc: ofaczero@gmail.com \r\n";
                 $header .= "Content-type: text/html\r\n";
                 
-                $retval = mail ($to,$subject,$message,$header);
+                mail ($to,$subject,$message,$header);
+                // $retval = mail ($to,$subject,$message,$header);
+
                 
-                if( $retval == true ) {
-                    $_SESSION['message'] = "send";
-                    $qe = true;
-                }else {
-                    $qe = false;
-                }
-            } 
-            if($qe) {
-                //return true;
+                // if( $retval == true ) {
+                //     $_SESSION['message'] = "send";
+                //     $qe = true;
+                // }else {
+                //     $qe = false;
+                // }
+                $_SESSION['message'] = "sendok";
+                return true;
             } else {
-                //return false;
+                return false;
             }
+            // if($qe) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
