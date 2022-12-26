@@ -240,9 +240,9 @@
                 }
             } 
             if($qe) {
-                return true;
+                //return true;
             } else {
-                return false;
+                //return false;
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
